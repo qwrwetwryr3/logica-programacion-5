@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>SA-LPD5 - Ejercicio de lógica de programación - Práctica del número secreto</title>
+</head>
+<body>
+	<script type="text/javascript">
+		let secretNumber = Math.floor(Math.random() * 100) + 1;
+		let guessedNumbers = [];
+
+		while (true) {
+			let guess = prompt("Adivina el número secreto (entre 1 y 100):");
+			if (guess === null) {
+				break;
+			}
+			guess = Number(guess);
+			if (isNaN(guess)) {
+				alert("Error: Debe ingresar un número.");
+				continue;
+			}
+			guessedNumbers.push(guess);
+			if (guess === secretNumber) {
+				alert(`¡Felicitaciones! Adivinaste el número secreto (${secretNumber}).`);
+				alert(`Lista de números ingresados: ${guessedNumbers.join(", ")}.`);
+				break;
+			} else if (guess < secretNumber) {
+				alert("El número secreto es mayor.");
+			} else {
+				alert("El número secreto es menor.");
+			}
+		}
+
+	</script>
+
+</body>
+</html>
